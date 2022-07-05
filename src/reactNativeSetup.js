@@ -12,8 +12,6 @@ import {
 import { LevelUpNVData } from './LevelUpNVData';
 import { LevelUpResourcesManager } from './LevelUpResourcesManager';
 
-var webClientTransceiver;
-
 export async function setupLocalHost(){
 
   logger.info(">> System initHost - React Native ===================");
@@ -32,7 +30,7 @@ export async function setupLocalHost(){
 
 	await LocalHost.init(privateKeyData);
 
-  webClientTransceiver = new WebClientTransceiver();
+  LocalHost.assignWebportTransceiver('ws', new WebClientTransceiver);
 
   logger.debug('LocalHost ID: ' + LocalHost.getID());
 }
