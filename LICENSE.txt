@@ -1,10 +1,3 @@
-# Fieldfare React Native
-
-This is the React Native version of the Fieldfare library from ModuHub.
-
-
-#License
-
 Copyright 2022 Igor J. Langer
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
