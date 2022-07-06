@@ -1,6 +1,6 @@
 {
   "name": "fieldfare-reactnative",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is the react native version of the fieldfare package developed by ModuHub.",
   "main": "./src/index.js",
   "scripts": {
