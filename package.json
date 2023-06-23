@@ -1,8 +1,8 @@
 {
-  "name": "fieldfare-reactnative",
-  "version": "0.0.2",
+  "name": "@fieldfare/react-native",
+  "version": "1.0.0",
   "description": "This is the react native version of the fieldfare package developed by ModuHub.",
-  "main": "./src/index.js",
+  "main": "./src/ReactNativeExports.js",
   "scripts": {
     "test": "test-fieldfare-reactnative"
   },
@@ -16,9 +16,9 @@
   "author": "Igor J. Langer",
   "license": "ISC",
   "dependencies":{
+    "@fieldfare/core": "^1.0.0",
     "@react-native-async-storage/async-storage": "^1.17.5",
     "asyncstorage-down": "^4.2.0",
-    "fieldfare": "^0.0.4",
     "levelup": "^0.18.6"
   }
 }
