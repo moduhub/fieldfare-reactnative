@@ -1,26 +1,22 @@
+/**
+ * Fieldfare: Backend framework for distributed networks
+ *
+ * Copyright 2021-2025 Adan Kvitschal
+ * ISC LICENSE
+ */
+
 import { WebCryptoManager, NVD } from '@fieldfare/core'
 
-import crypto from 'isomorphic-webcrypto'
+import QuickCrypto from 'react-native-quick-crypto';
 
-
-export class ReactNativeCryptoManager extends WebCryptoManager 
-{
-	static async init()
-	{
-		// Only needed for crypto.getRandomValues
-		// but only wait once, future calls are secure
-		await crypto.ensureSecure()
-		const array = new Uint8Array(1)
-		crypto.getRandomValues(array)
-		
-		global.crypto = crypto
-
+export class ReactNativeCryptoManager extends WebCryptoManager {
+	
+	static async init() {
+		global.crypto = QuickCrypto;
 		WebCryptoManager.singleton(new ReactNativeCryptoManager)
 	}
 
-
-	async generateLocalKeypair()
-	{
+	async generateLocalKeypair() {
 		const newKeypair = await crypto.subtle.generateKey(
 			{
 				name: "ECDSA",
@@ -52,17 +48,14 @@ export class ReactNativeCryptoManager extends WebCryptoManager
 		}
 	}
 
-
-	async getLocalKeypair()
-	{
+	async getLocalKeypair() {
 		const publicKeyJWK = await NVD.load('publicKey')
 		const privateKeyJWK = await NVD.load('privateKey')
 		
 		if (publicKeyJWK === undefined || 
 			publicKeyJWK === null || 
 			privateKeyJWK === undefined || 
-			privateKeyJWK === null) 
-		{
+			privateKeyJWK === null) {
 			return this.generateLocalKeypair()
 		}
 		
